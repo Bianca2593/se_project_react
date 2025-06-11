@@ -1,8 +1,11 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
+
 import headerLogo from '../../images/header-logo.svg'
 import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
 import menuCloseIcon from '../../images/menu-close.svg'
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx'
 
 function Header({
   handleAddClick,
@@ -17,7 +20,9 @@ function Header({
 
   return (
     <header className="header">
-      <img className="header__logo" src={headerLogo} alt="WWTR logo." />
+      <Link to="/">
+        <img className="header__logo" src={headerLogo} alt="WWTR logo." />
+      </Link>
       <p className="header__date-and-location">
         {currentDate}.{weatherData.city}.
       </p>
@@ -27,13 +32,14 @@ function Header({
         <img
           src={isMobileMenuOpened ? menuCloseIcon : menuOpenIcon}
           alt={isMobileMenuOpened ? 'Close menu' : 'Open menu'}
-          className="header__mobile-icon"
+          className={`header__mobile-icon ${isMobileMenuOpened ? 'header__mobile-icon--open' : ''}`}
         />
       </button>
 
       <div
         className={`header__nav-container ${isMobileMenuOpened ? 'header__nav-container--open' : ''}`}
       >
+        <ToggleSwitch />
         <button
           onClick={handleAddClick}
           type="button"
@@ -41,14 +47,17 @@ function Header({
         >
           + Add Clothes
         </button>
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img
-            src={headerAvatar}
-            alt="Terrence Tegegne."
-            className="header__avatar"
-          />
-        </div>
+
+        <Link to="/profile" className="header__link">
+          <div className="header__user-container">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              src={headerAvatar}
+              alt="Terrence Tegegne."
+              className="header__avatar"
+            />
+          </div>
+        </Link>
       </div>
     </header>
   )

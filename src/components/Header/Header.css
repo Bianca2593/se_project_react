@@ -25,6 +25,11 @@
   cursor: pointer;
 }
 
+.header__link {
+  text-decoration: none;
+  color: #000;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
@@ -46,6 +51,7 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  position: relative;
 }
 
 @media screen and (max-width: 425px) {
@@ -60,8 +66,7 @@
   }
 
   .header__date-and-location {
-    position: absolute;
-    top: 94px;
+    margin-left: 12px;
   }
 
   .header__add-clothes-btn {
@@ -84,16 +89,15 @@
   .header__mobile-toggle {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 20px;
-    right: -14px;
     z-index: 9999;
+    padding: 0;
+    margin: 0;
   }
 
-  .header__mobile-icon {
-    position: relative;
-    right: 20px;
-    top: 20px;
+  .header__mobile-icon--open {
+    position: absolute;
+    top: 40px;
+    right: 11px;
   }
 
   .header__nav-container {
@@ -108,7 +112,8 @@
     top: 18px;
     background-color: white;
     border-radius: 12px;
-    width: 365px;
+    max-width: 365px;
+    width: 92%;
     height: 185px;
     padding: 18px 16px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -118,14 +123,24 @@
 
 @media screen and (min-width: 375px) and (max-width: 375px) {
   .header__nav-container--open {
-    width: 316px;
+    width: 91%;
     height: 180px;
   }
 }
 
 @media screen and (max-width: 320px) {
+  .header__mobile-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header__mobile-icon--open {
+    width: 21px;
+    height: 21px;
+  }
+
   .header__nav-container--open {
-    width: 260px;
+    width: 89%;
     height: 175px;
   }
 }

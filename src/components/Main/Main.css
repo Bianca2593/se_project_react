@@ -24,6 +24,10 @@
     margin-bottom: 20px;
   }
 
+  .cards__lists_fallback-text {
+    color: #ff4d00;
+  }
+
   .cards__random-button {
     visibility: visible;
     background-color: #000000;
@@ -38,16 +42,24 @@
     align-items: center;
     gap: 8px;
   }
+
+  .cards__random-button:hover {
+    cursor: pointer;
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 375px) {
   .cards__text {
-    font-size: 19px;
+    font-size: 18px;
+  }
+
+  .cards__lists {
+    justify-content: center;
   }
 }
 
 @media screen and (max-width: 320px) {
   .cards__text {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

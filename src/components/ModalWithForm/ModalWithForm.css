@@ -108,6 +108,16 @@
 }
 
 .modal__add-button:hover {
-  background-color: #0000004d;
+  background-color: #00000099;
   cursor: pointer;
+}
+
+.modal__add-button_inactive {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.modal__error {
+  color: #ff4d00;
+  display: block;
 }
