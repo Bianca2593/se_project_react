@@ -69,7 +69,7 @@ Copy
 Edit
 export const APIkey 
 
-Here's how the application looks in action:
+Here is how the application looks in action:
 
 <img src="weather-preview.png" alt="Weather preview" width="600" />
 
