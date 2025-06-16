@@ -71,8 +71,7 @@ export const APIkey
 
 Here's how the application looks in action:
 
-<img src="./src/assets/weather-preview.png" alt="Weather preview" width="600" />
-
+<img src="weather-preview.png" alt="Weather preview" width="600" />
 
 🌐 Live link:
 👉 https://Bianca2593.github.io/se_project_react/
