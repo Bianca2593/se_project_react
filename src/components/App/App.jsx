@@ -34,7 +34,7 @@ function App() {
   const [isCanceling, setIsCanceling] = useState(false)
 
   useEffect(() => {
-    const today = new Date().toLocaleString('defualt', {
+    const today = new Date().toLocaleString('default', {
       month: 'long',
       day: 'numeric',
     })
@@ -53,7 +53,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        setClothingItems(data)
+        setClothingItems(data.reverse()) // ✅ Make newest items appear first
       })
       .catch(console.error)
   }, [])
@@ -69,9 +69,7 @@ function App() {
   }
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === 'F'
-      ? setCurrentTemperatureUnit('C')
-      : setCurrentTemperatureUnit('F')
+    setCurrentTemperatureUnit(prev => (prev === 'F' ? 'C' : 'F'))
   }
 
   const handleAddItemSubmit = (item, e) => {
@@ -81,7 +79,7 @@ function App() {
         new Promise((resolve, reject) => {
           addItem(item)
             .then((newItem) => {
-              setClothingItems([newItem, ...clothingItems])
+              setClothingItems([newItem, ...clothingItems]) // ✅ Add new card to start
               closeActiveModal()
               setTimeout(resolve, 500)
             })
