@@ -43,3 +43,4 @@ export const myCoordinates = {
 }
 
 export const APIkey = '810bf0afc9932b0cfb01c356ecee4457'
+export const baseUrl = "http://localhost:3001";
