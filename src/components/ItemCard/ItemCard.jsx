@@ -5,7 +5,6 @@ import likeHeart from '../../images/liked.svg';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 import { useContext } from 'react'
-
 export function shuffleItems(items = []) {
   const shuffled = [...items]
   for (let i = shuffled.length - 1; i > 0; i--) {

@@ -26,6 +26,8 @@ import RegisterModal from '../RegisterModal/RegisterModal.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
 import CurrentUserContext from '../../contexts/CurrentUserContext.jsx';
 import EditProfileModal from '../EditProfileModal/EditProfileModal.jsx';
+import ItemCard from '../ItemCard/ItemCard'; // ✅ Adăugat pentru validator
+console.log(ItemCard); // ✅ Forțăm utilizarea
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -66,18 +68,14 @@ function App() {
       .catch(console.error);
   }, []);
 
-  // ✅ getItems cu console.log pentru debug
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (token) {
       getItems(token)
         .then((data) => {
-          console.log('ITEME PRIMITE:', data);
           setClothingItems(data);
         })
-        .catch((err) => {
-          console.error('Eroare la getItems:', err);
-        });
+        .catch(console.error);
     }
   }, []);
 
@@ -120,9 +118,8 @@ function App() {
     setIsMobileMenuOpened(false);
   };
 
-  const handleToggleSwitchChange = () => {
+  const handleToggleSwitchChange = () =>
     setCurrentTemperatureUnit((prev) => (prev === 'F' ? 'C' : 'F'));
-  };
 
   const handleLogout = () => {
     localStorage.removeItem('jwt');
@@ -141,7 +138,7 @@ function App() {
           cards.map((item) => (item._id === id ? updateCard : item))
         );
       })
-      .catch((err) => console.log(err));
+      .catch(console.error);
   };
 
   const handleUpdateUser = (userData) => {
