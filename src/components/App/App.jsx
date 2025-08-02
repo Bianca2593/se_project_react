@@ -66,14 +66,18 @@ function App() {
       .catch(console.error);
   }, []);
 
+  // ✅ getItems cu console.log pentru debug
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (token) {
       getItems(token)
         .then((data) => {
+          console.log('ITEME PRIMITE:', data);
           setClothingItems(data);
         })
-        .catch(console.error);
+        .catch((err) => {
+          console.error('Eroare la getItems:', err);
+        });
     }
   }, []);
 

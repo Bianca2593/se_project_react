@@ -2,28 +2,28 @@ import './Main.css';
 import { useContext, useState, useEffect } from 'react';
 
 import WeatherCard from '../WeatherCard/WeatherCard';
-import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'; // ✅ corectat
+import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'; 
 import random from '../../images/random.svg';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit';
 
 function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
 
   const filteredItems = clothingItems.filter(
     (item) =>
       item.weather?.toLowerCase() === weatherData.type?.toLowerCase() ||
       !weatherData.type
-  );
+  )
 
-  const [shuffledItems, setShuffledItems] = useState([]);
+  const [shuffledItems, setShuffledItems] = useState([])
 
   useEffect(() => {
-    setShuffledItems(filteredItems);
-  }, [weatherData, clothingItems]);
+    setShuffledItems(filteredItems)
+  }, [weatherData, clothingItems])
 
   const handleRandomClick = () => {
-    setShuffledItems(shuffleItems(filteredItems));
-  };
+    setShuffledItems(shuffleItems(filteredItems))
+  }
 
   return (
     <main>
@@ -59,7 +59,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
         </button>
       </section>
     </main>
-  );
+  )
 }
 
-export default Main;
+export default Main

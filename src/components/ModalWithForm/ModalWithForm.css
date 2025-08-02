@@ -117,6 +117,43 @@
   pointer-events: none;
 }
 
+.modal__add-button_type_signup {
+  width: 86px;
+}
+
+.modal__add-button_type_login {
+  width: 73px;
+}
+
+.modal__login-btn {
+  border: none;
+  background: transparent;
+  position: absolute;
+  left: 113px;
+  bottom: 44px;
+  opacity: 0.5;
+}
+
+.modal__login-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.modal__register-btn {
+  border: none;
+  background: transparent;
+  position: absolute;
+  left: 113px;
+  bottom: 44px;
+  opacity: 0.5;
+  padding: 0 10px;
+}
+
+.modal__register-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
 .modal__error {
   color: #ff4d00;
   display: block;
