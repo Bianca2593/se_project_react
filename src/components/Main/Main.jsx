@@ -2,7 +2,7 @@ import './Main.css';
 import { useContext, useState, useEffect } from 'react';
 
 import WeatherCard from '../WeatherCard/WeatherCard';
-import ItemCard, { shuffleItems } from '../ItemCard';
+import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'; // ✅ corectat
 import random from '../../images/random.svg';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit';
 
