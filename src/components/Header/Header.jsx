@@ -9,6 +9,7 @@ import menuCloseIcon from '../../images/menu-close.svg'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx'
 import CurrentUserContext from '../../contexts/CurrentUserContext.jsx'
 
+
 function Header({
   handleAddClick,
   currentDate,

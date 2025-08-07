@@ -1,14 +1,11 @@
 import React, { useEffect, useContext, useState } from 'react'
-import ModalWithFrom from '../ModalWithForm/ModalWithForm'
+import { useFormAndValidation } from '../../hooks/useFormAndValidation'
+import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
-function EditProfileModal({
-  isOpen,
-  onClose,
-  isValid,
-  onUpdateUser,
-  isLoading,
-}) {
+function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
+  const { isValid } =
+    useFormAndValidation()
   const currentUser = useContext(CurrentUserContext)
 
   const [name, setName] = useState('')
@@ -27,7 +24,7 @@ function EditProfileModal({
   }
 
   return (
-    <ModalWithFrom
+    <ModalWithForm
       title="Change profile data"
       buttonText={isLoading ? 'Saving changes...' : 'Save changes'}
       formType="edit"
@@ -63,7 +60,7 @@ function EditProfileModal({
           onChange={(e) => setAvatar(e.target.value)}
         />
       </label>
-    </ModalWithFrom>
+    </ModalWithForm>
   )
 }
 
