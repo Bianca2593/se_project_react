@@ -155,6 +155,10 @@ git checkout -b your-feature-branch
 Then open a pull request with a description of your changes.
 
 ---
+## Backend repository
+
+ https://github.com/Bianca2593/se_project_express
+
 
 ## 📋 License
 
