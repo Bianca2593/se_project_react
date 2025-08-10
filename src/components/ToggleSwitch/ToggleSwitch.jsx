@@ -8,7 +8,7 @@ export default function ToggleSwitch() {
   )
 
   return (
-    <>
+    
       <label className="toggle-switch">
         <input
           type="checkbox"
@@ -35,6 +35,5 @@ export default function ToggleSwitch() {
           C
         </span>
       </label>
-    </>
   )
 }

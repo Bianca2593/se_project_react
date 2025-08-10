@@ -1,16 +1,19 @@
-import './ItemModal.css'
-import previewCloseButton from '../../images/previewclosebutton.svg'
-import defaultImage from '../../images/defaultimage.jpg'
+import './ItemModal.css';
+import previewCloseButton from '../../images/previewclosebutton.svg';
+import defaultImage from '../../images/defaultimage.jpg';
 
-import { Modal } from '../Modal/Modal'
-import { useContext } from 'react'
+import { Modal } from '../Modal/Modal';
+import { useContext } from 'react';
 
-import CurrentUserContext from '../../contexts/CurrentUserContext'
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
-  const currentUser = useContext(CurrentUserContext)
+  const currentUser = useContext(CurrentUserContext);
   const isOwn =
-    card.owner === currentUser?._id || card.owner?._id === currentUser?._id
+    (card?.owner === currentUser?._id ||
+      card?.owner?._id === currentUser?._id) &&
+    !!currentUser?._id; // ensures user is logged in
+
   return (
     <Modal
       name="preview"
@@ -29,22 +32,24 @@ function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
           className="modal__close-icon"
         />
       </button>
+
       <img
         src={
-          typeof card.imageUrl === 'string'
+          typeof card?.imageUrl === 'string'
             ? card.imageUrl
-            : card.imageUrl?.url || defaultImage
+            : card?.imageUrl?.url || defaultImage
         }
-        alt={card.name}
+        alt={card?.name || 'Item image'}
         className="modal__image"
         onError={(e) => {
-          e.target.onerror = null
-          e.target.src = defaultImage
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = defaultImage;
         }}
       />
+
       <div className="modal__footer">
-        <p className="modal__caption">{card.name}</p>
-        <p className="modal__weather">Weather: {card.weather}</p>
+        <p className="modal__caption">{card?.name}</p>
+        <p className="modal__weather">Weather: {card?.weather}</p>
         {isOwn && (
           <button
             type="button"
@@ -56,7 +61,7 @@ function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
         )}
       </div>
     </Modal>
-  )
+  );
 }
 
-export default ItemModal
+export default ItemModal;
